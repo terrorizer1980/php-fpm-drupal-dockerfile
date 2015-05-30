@@ -28,6 +28,8 @@ RUN docker-php-ext-configure mbstring --enable-mbstring && \
 docker-php-ext-install mbstring
 # zip (to install Drush)
 RUN docker-php-ext-install zip
+# ext-pcntl (for Drush)
+RUN docker-php-ext-install pcntl
 
 # Configure PHP
 COPY php.ini /usr/local/etc/php/
@@ -41,8 +43,8 @@ ln -s /usr/local/bin/composer /usr/bin/composer
 RUN apt-get -y install git && \
 git clone https://github.com/drush-ops/drush.git /usr/local/src/drush && \
 cd /usr/local/src/drush && \
-composer global require drush/drush:6.* && \
-git checkout 6.6.0 && \
+composer global require drush/drush:7.* && \
+git checkout 7.x && \
 ln -s /usr/local/src/drush/drush /usr/bin/drush && \
 composer install
 
