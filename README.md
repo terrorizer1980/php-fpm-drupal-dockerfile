@@ -7,3 +7,4 @@ Other parts include
 - nginx
 - mariadb
 - docker-compose
+- decompose
