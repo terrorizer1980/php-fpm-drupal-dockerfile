@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:5.4-fpm
 MAINTAINER David Parrish <daveparrish@tutanota.com>
 
 # Update Debian (so additional software can be installed with apt-get)
@@ -10,7 +10,7 @@ RUN apt-get -y --no-install-recommends install libpng12-dev libjpeg-dev && \
 docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr && \
 docker-php-ext-install gd
 # MySQL
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install mysqli mysql
 # mbstring
 RUN docker-php-ext-configure mbstring --enable-mbstring && \
 docker-php-ext-install mbstring
