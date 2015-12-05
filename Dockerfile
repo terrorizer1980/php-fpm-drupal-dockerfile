@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:5-fpm
 MAINTAINER David Parrish <daveparrish@tutanota.com>
 
 # Update Debian (so additional software can be installed with apt-get)
