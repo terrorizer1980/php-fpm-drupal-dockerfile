@@ -15,9 +15,9 @@ RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-configure mbstring --enable-mbstring && \
 docker-php-ext-install mbstring
 # pcntl (required by drush 7.x)
-RUN docker-php-ext-install pcntl
 # zip (required by drush 7.x)
-RUN docker-php-ext-install zip
+# opcache
+RUN docker-php-ext-install pcntl zip opcache
 
 # Install msmtp
 RUN apt-get -y --no-install-recommends install msmtp
