@@ -43,6 +43,6 @@ composer install && \
 apt-get clean && \
 rm -r /var/lib/apt/lists/* && \
 
-# Extract php.ini files for use downstream
-tar --wildcards -C "/usr/src" -xvf "/usr/src/php.tar.xz" "php-$PHP_VERSION/php.ini*" && \
+# Extract php source files files for use downstream
+tar -C "/usr/src" -xvf "/usr/src/php.tar.xz" && \
 mv /usr/src/php-$PHP_VERSION /usr/src/php
