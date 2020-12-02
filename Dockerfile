@@ -1,5 +1,5 @@
 FROM php:fpm
-MAINTAINER David Parrish <daveparrish@tutanota.com>
+LABEL maintainer="David Parrish <daveparrish@tutanota.com>"
 
 # Update Debian (so additional software can be installed with apt-get)
 RUN apt-get -y update && \
