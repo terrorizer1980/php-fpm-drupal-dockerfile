@@ -1,7 +1,12 @@
 FROM php:fpm
 LABEL maintainer="David Parrish <daveparrish@tutanota.com>"
 
+# For pipes in RUN command
+# https://github.com/hadolint/hadolint/wiki/DL4006
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Update Debian (so additional software can be installed with apt-get)
+# hadolint ignore=DL3003
 RUN apt-get -y update && \
 # Install required PHP extensions.
 # gd
