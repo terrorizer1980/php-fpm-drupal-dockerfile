@@ -24,16 +24,16 @@ docker-php-ext-install mbstring && \
 # opcache
 docker-php-ext-install pcntl zip opcache && \
 # Install msmtp
-apt-get -y --no-install-recommends install msmtp && \
+apt-get -y --no-install-recommends install msmtp=* && \
 # Install mariadb client (required for 'drush sqlc')
-apt-get -y --no-install-recommends install mariadb-client && \
+apt-get -y --no-install-recommends install mariadb-client=* && \
 # http://docs.drush.org/en/master/install/
 # Install Composer for installing Drush
 curl -sS https://getcomposer.org/installer | php && \
 mv composer.phar /usr/local/bin/composer && \
 ln -s /usr/local/bin/composer /usr/bin/composer && \
 # Install Drush (latest)
-apt-get -y --no-install-recommends install git && \
+apt-get -y --no-install-recommends install git=* && \
 git clone https://github.com/drush-ops/drush.git /usr/local/src/drush && \
 cd /usr/local/src/drush && \
 git checkout 7.x && \
@@ -44,4 +44,4 @@ apt-get clean && \
 rm -r /var/lib/apt/lists/* && \
 # Extract php source files files for use downstream
 tar -C "/usr/src" -xvf "/usr/src/php.tar.xz" && \
-mv /usr/src/php-$PHP_VERSION /usr/src/php
+mv "/usr/src/php-$PHP_VERSION" /usr/src/php
