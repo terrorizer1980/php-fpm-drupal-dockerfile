@@ -10,8 +10,9 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get -y update && \
 # Install required PHP extensions.
 # gd
-apt-get -y --no-install-recommends install libpng-dev libjpeg-dev && \
-docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr && \
+apt-get -y --no-install-recommends install libzip-dev=* libonig-dev=* \
+  libpng-dev=* libjpeg-dev=* && \
+docker-php-ext-configure gd --with-jpeg && \
 docker-php-ext-install gd && \
 # MySQL
 docker-php-ext-install pdo pdo_mysql && \
