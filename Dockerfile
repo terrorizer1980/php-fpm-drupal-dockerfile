@@ -10,7 +10,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get -y update && \
 # Install required PHP extensions.
 # gd
-apt-get -y --no-install-recommends install libzip-dev=* libonig-dev=* \
+apt-get -y --no-install-recommends install unzip=* libzip-dev=* libonig-dev=* \
   libpng-dev=* libjpeg-dev=* && \
 docker-php-ext-configure gd --with-jpeg && \
 docker-php-ext-install gd && \
