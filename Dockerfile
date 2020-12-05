@@ -5,7 +5,7 @@ LABEL maintainer="David Parrish <daveparrish@tutanota.com>"
 RUN apt-get -y update && \
 # Install required PHP extensions.
 # gd
-apt-get -y --no-install-recommends install libpng-dev libjpeg-dev && \
+apt-get -y --no-install-recommends install unzip libpng-dev libjpeg-dev && \
 docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr && \
 docker-php-ext-install gd && \
 # MySQL
